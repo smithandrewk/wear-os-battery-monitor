@@ -16,7 +16,9 @@ class SensorHandler(fileHandler: FileHandler, sensorManager: SensorManager) : Se
         mSensorManager.registerListener(this, mAccelerometer, samplingPeriodMicroseconds)
     }
 
-    override fun onSensorChanged(event: SensorEvent) {}
+    override fun onSensorChanged(event: SensorEvent) {
+        mFileHandler.writeAccelerometerEvent(event)
+    }
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {}
 
